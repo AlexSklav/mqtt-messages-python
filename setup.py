@@ -7,9 +7,8 @@ import version
 
 sys.path.insert(0, '.')
 
-
 setup(name='mqtt-messages',
-      version=version.getVersion(),
+      version='0.0.1',
       description=open('README.md', 'rb').read(),
       author='Lucas Zeer',
       author_email='lucas.zeer@gmail.com',
