@@ -5,11 +5,7 @@ source:
 
 package:
   name: mqtt-messages-python
-{% if GIT_DESCRIBE_NUMBER > '0' %}
-  version: {{ GIT_DESCRIBE_TAG[1:] }}+{{ GIT_DESCRIBE_NUMBER }}
-{% else %}
-  version: {{ GIT_DESCRIBE_TAG[1:] }}
-{% endif %}
+  version: v0.0.1
 
 build:
   # If this is a new build for the same version, increment the build
