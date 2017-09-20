@@ -20,16 +20,14 @@ build:
 requirements:
   build:
     - python 2.7*
-    - paho-mqtt
   run:
     - python 2.7*
-    - paho-mqtt
-    - wheezy.routing
+    - onoff
 
 test:
   imports:
-    - paho_mqtt_helpers
+    - mqtt_messages
 
 about:
-  home: https://github.com/Lucaszw/paho-mqtt-helpers.git
+  home: https://github.com/Lucaszw/mqtt-messages-python.git
   license: BSD
