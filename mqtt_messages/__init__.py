@@ -45,14 +45,16 @@ class MqttMessages(OnOffMixin):
             base=self.base, receiver=receiver, val=val)
         return self.addBinding(route, event)
 
-    def onNotifyMsg(self, topic, method):
-        route = Template('$base/notify/$name/$topic').substitute(
-            base=self.base, name=self.url_safe_plugin_name, topic=topic)
+    def onNotifyMsg(self, sender, topic, method):
+        route = Template('$base/$sender/notify/$name/$topic').substitute(
+            base=self.base, sender=sender, name=self.url_safe_plugin_name,
+            topic=topic)
         return self.addSubscription(route, method)
 
     def bindNotifyMsg(self, receiver, topic, event):
-        route = Template('$base/notify/$receiver/$topic').substitute(
-            base=self.base, receiver=receiver, topic=topic)
+        route = Template('$base/$name/notify/$receiver/$topic').substitute(
+            base=self.base, name=self.url_safe_plugin_name,
+            receiver=receiver, topic=topic)
         return self.addBinding(route, event)
 
     def onStatusMsg(self, sender, method):
