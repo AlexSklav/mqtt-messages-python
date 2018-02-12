@@ -1,7 +1,11 @@
-import re
 from string import Template
+import re
 
 from onoff import OnOffMixin
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
 
 
 class MqttMessages(OnOffMixin):
