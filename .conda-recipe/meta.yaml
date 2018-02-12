@@ -17,13 +17,16 @@ build:
   # number. If you do not include this key, it defaults to 0.
   number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
+  #: .. versionadded:: X.X.X
   noarch: python
 
 requirements:
   build:
+    #: .. versionchanged:: X.X.X
     - python
     - onoff
   run:
+    #: .. versionchanged:: X.X.X
     - python
     - onoff
 
