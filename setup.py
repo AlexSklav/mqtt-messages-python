@@ -1,14 +1,12 @@
 #!/usr/bin/env python
-
-import sys
 from setuptools import setup
 
-import version
+import versioneer
 
-sys.path.insert(0, '.')
 
 setup(name='mqtt-messages',
-      version='v0.0.1',
+      version=versioneer.get_version(),
+      cmdclass=versioneer.get_cmdclass(),
       description=open('README.md', 'rb').read(),
       author='Lucas Zeer',
       author_email='lucas.zeer@gmail.com',
