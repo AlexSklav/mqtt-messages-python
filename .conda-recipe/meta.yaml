@@ -24,11 +24,11 @@ requirements:
   build:
     #: .. versionchanged:: 0.1
     - python
-    - onoff
+    - onoff >=1.0.1
   run:
     #: .. versionchanged:: 0.1
     - python
-    - onoff
+    - onoff >=1.0.1
 
 about:
   home: https://github.com/Lucaszw/mqtt-messages-python.git
