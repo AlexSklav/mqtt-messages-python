@@ -1,25 +1,38 @@
-# source will be downloaded prior to filling in jinja templates
-# Example assumes that this folder has setup.py in it
-source:
-  git_url: ../
-
+{% if GIT_DESCRIBE_NUMBER > '0' %}
+{% set GIT_VERSION = GIT_DESCRIBE_TAG[1:] + '.post' + GIT_DESCRIBE_NUMBER %}
+{% else %}
+{% set GIT_VERSION = GIT_DESCRIBE_TAG[1:] %}
+{% endif %}
+{% set PKG_NAME = 'mqtt-messages-python' %}
+{% set MODULE_NAME = '_'.join(PKG_NAME.split('-')[:2]) %}
 package:
-  name: mqtt-messages-python
-  version: v0.0.1
+  name: {{ PKG_NAME }}
+  version: {{ GIT_VERSION }}
 
 build:
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
   number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
+  noarch: python
 
 requirements:
   build:
-    - python 2.7*
-  run:
-    - python 2.7*
+    - python >=3.6
     - onoff
+  run:
+    - python >=3.6
+    - onoff
+
+test:
+  imports:
+    - {{ MODULE_NAME }}
 
 about:
   home: https://github.com/Lucaszw/mqtt-messages-python.git
   license: BSD
+
+# source will be downloaded prior to filling in jinja templates
+# Example assumes that this folder has setup.py in it
+source:
+  git_url: ../

@@ -1,15 +1,15 @@
 #!/usr/bin/env python
-
-import sys
 from setuptools import setup
 
-import version
+import versioneer
 
-sys.path.insert(0, '.')
+with open('README.md', 'r', encoding='utf-8') as f:
+    description = f.read().strip()
 
 setup(name='mqtt-messages',
-      version='v0.0.1',
-      description=open('README.md', 'rb').read(),
+      version=versioneer.get_version(),
+      cmdclass=versioneer.get_cmdclass(),
+      description=description,
       author='Lucas Zeer',
       author_email='lucas.zeer@gmail.com',
       url='https://github.com/Lucaszw/mqtt-messages-python',
